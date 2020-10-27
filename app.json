@@ -1,12 +1,12 @@
-{
+{ 
   "expo": {
     "name": "MTE2020",
     "slug": "MTE2020",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/MyAgronomist.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/MyAgronomist.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,6 +21,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.naseerpervaz.MTE2020"
     }
   }
 }
