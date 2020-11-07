@@ -9,7 +9,6 @@ import {DisplayScannedTag} from "../App/ProcessScannedTag"
 import {HouseNumber} from "../App/model/HouseholdMeatPackage"
 import {MTEhouseholdPicture} from "../App/pictureManagement/HouseholdPicture"
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -55,6 +54,18 @@ export const Home = ({ navigation }) => (
     {/* <Text>Menu</Text> */}
     {/* <Button  text='Submit' bordered onPress={loginUser} /> */}
     <Button
+      text1="Procure Livestock"
+      text2="جانورن جو انتظام"
+      // text2="هيڊ آفيس سان ڊيٽا کي هم وقت سازي ڪريو"
+      onPress={() =>
+        navigation.push("AddCow", { name: "Procurment Management" })
+      }
+      type='filled'
+        bordered
+    />
+    
+    <Text></Text>
+    <Button
       // title="Slaughter Livestock"
       text1="Slaughter Livestock"
       text2="ذبح چوپايو مال"
@@ -64,7 +75,7 @@ export const Home = ({ navigation }) => (
         bordered
     />
     <Text></Text>
-    <Text></Text>
+    
     {/* <Button
       
       text="Livestock Picture"
@@ -82,7 +93,7 @@ export const Home = ({ navigation }) => (
         bordered
     />
      <Text></Text>
-    <Text></Text>
+  
     <Button
       text1="Meat Package Distribution"
       text2="گوشت پيڪيج جي ورهاست"
@@ -94,18 +105,7 @@ export const Home = ({ navigation }) => (
     />
      <Text></Text>
     <Text></Text>
-    <Button
-      text1="Procure Livestock"
-      text2="جانورن جو انتظام"
-      // text2="هيڊ آفيس سان ڊيٽا کي هم وقت سازي ڪريو"
-      onPress={() =>
-        navigation.push("AddCow", { name: "Procurment Management" })
-      }
-      type='filled'
-        bordered
-    />
     
-    <Text></Text>
     <Button text1="Settings"  text2="جوڙ" onPress={() => navigation.toggleDrawer()} type='filled'
         bordered />
     
@@ -146,6 +146,42 @@ export const Details = ({ route }) => (
     {route.params.name && <Text>{route.params.name}</Text>}
   </ScreenContainer>
 );
+export const LivestockFeeder = ({ route,navigation }) => (
+  <ScreenContainer>
+     <Button
+      // title="Slaughter Livestock"
+      text1="Register Feedlot"
+      text2="فيڊل لاٽ کي رجسٽر ڪريو"
+        onPress={() =>
+        navigation.push("Feeder Registration", { name: "Feedlots Management " }) }
+        type='filled'
+        bordered
+    />
+    <Text></Text>
+     <Button
+      // title="Slaughter Livestock"
+      text1="Handing Over Livestock to Feeder Feedlot"
+      text2="فيڊر فيڊ لاٽ کي جانورن جي حوالي ڪرڻ"
+        onPress={() =>
+        // navigation.push("Feedlot Contract Management", { name: "Feedlots Contract Management " }) }
+        navigation.push("Select Feedlot", { name: "Feedlots bbbContract Management " }) }
+        type='filled'
+        bordered
+    />
+    <Text></Text>
+    <Button
+      // title="Slaughter Livestock"
+      text1="Daily Weight Gain"
+      text2="روزانه وزن حاصل ڪرڻ جو انتظام"
+        onPress={() =>
+        // navigation.push("Feedlot Contract Management", { name: "Feedlots Contract Management " }) }
+        navigation.push("Daily Weight Gain", { name: "Daily Weight Gain Management",callingModule: "dailyWeightGain" }) }
+        type='filled'
+        bordered
+    />
+    <Text></Text>
+  </ScreenContainer>
+);
 
 
 
@@ -174,7 +210,7 @@ export const Splash = () => (
 export const SignIn = ({ navigation }) => {
   const { signIn } = React.useContext(AuthContext);
   
-  /****************** on hold by pass login */
+  /****************** on hold by pass login 
   const [username,onChangeText]=React.useState("")
     const [passwrd,setPasswrd]=React.useState("")
     const [priceLocalUser]=React.useState("naseerpervaz")

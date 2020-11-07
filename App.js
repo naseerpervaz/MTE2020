@@ -21,10 +21,18 @@ import {
   ProcessFreezTag,
   DistributeMeatPackages,
   takeHouseholdPic,
+  LivestockFeeder
 } from "./App/Screens";
 import {SlaughterLivestock} from "./App/SlaughterLivestock"
 import {ScanTheTag} from "./App/FreezPackage"
 import {AddCow} from "./App/ProcureLivestock"
+import {LivestockFeederRegistration} from "./App/LivestockFeederRegistration"
+import {HandingOverLivestock} from "./App/HandingOverLivestock"
+const {SelectCattleFeeder} =require('./App/functionalComponents/selectFeedlot')
+import {SelectContract} from './App/functionalComponents/selectContract'
+import {SelectFeedlotDailyWG} from './App/functionalComponents/selectFeedlotForDailyWG'
+import {SelectContractForDailyWG} from './App/functionalComponents/selectContractForDailyWG'
+import {DailyWeightGain} from './App/DailyWeightGain'
 
 const AuthStack = createStackNavigator();
 const AuthStackScreen = () => (
@@ -44,6 +52,7 @@ const AuthStackScreen = () => (
 
 const Tabs = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
+const LivestockFeederStack = createStackNavigator();
 // const SearchStack = createStackNavigator();
 
 
@@ -112,6 +121,20 @@ const HomeStackScreen = () => (
   </HomeStack.Navigator>
 );
 
+const LivestockFeederStackScreen = () => (
+  <LivestockFeederStack.Navigator>
+    <LivestockFeederStack.Screen name="  Livestock Feeder" component={LivestockFeeder}  options={{ headerTitle: props => <Ionicons name="md-menu" size={32} color="green" {...props}/> }}/>
+    <LivestockFeederStack.Screen name="LivestockFeeder" component={LivestockFeeder} />
+    <LivestockFeederStack.Screen name="Feeder Registration" component={LivestockFeederRegistration} />
+    <LivestockFeederStack.Screen name="Select Feedlot" component={SelectCattleFeeder} />
+    <LivestockFeederStack.Screen name="Feedlot Contract Management" component={HandingOverLivestock} />
+    <LivestockFeederStack.Screen name="Select Contract" component={SelectContract} />
+    <LivestockFeederStack.Screen name="Daily Weight Gain" component={SelectFeedlotDailyWG} />
+    <LivestockFeederStack.Screen name="Contract For DWG" component={SelectContractForDailyWG} />
+    <LivestockFeederStack.Screen name="Weight Gain Management" component={DailyWeightGain} />
+
+  </LivestockFeederStack.Navigator>
+);
 // const SearchStackScreen = () => (
 //   <SearchStack.Navigator>
 //     <SearchStack.Screen name="Search" component={Search} />
@@ -133,10 +156,11 @@ const TabsScreen = () => (
               // ? 'md-checkmark-circle' 
               // : 'ios-information-circle-outline';
              return <Image source={require('./assets/meat.png')} fadeDuration={0} style={{width: 20, height: 20}} />
-            } else if (route.name === 'Freez') {
+            } else if (route.name === 'Feeder VSE') {
               // iconName = focused ? 'ios-list-box' : 'ios-list';
               // return <MaterialCommunityIcons name="coolant-temperature" size={24} color="black" />
-              return <Image source={require('./assets/Freezer.png')} fadeDuration={0} style={{width: 20, height: 20}} />
+              // return <Image source={require('./assets/Freezer.png')} fadeDuration={0} style={{width: 20, height: 20}} />
+              return <Image source={require('./assets/sdg9.png')} fadeDuration={0} style={{width: 20, height: 20}} />
             }
 
             // You can return any component that you like here!
@@ -165,9 +189,9 @@ const TabsScreen = () => (
     
   }}>
     <Tabs.Screen name="Home" component={HomeStackScreen} />
-    {/* <Tabs.Screen name="Freez" component={ScanTheTag} />
+    <Tabs.Screen name="Feeder VSE" component={LivestockFeederStackScreen} />
    
-    <Tabs.Screen name="Distribute" component={ScanTheTag} /> */}
+    {/* <Tabs.Screen name="Daily Weight Gain" component={SelectFeedlotDailyWG} /> */}
   </Tabs.Navigator>
 );
 const ProfileStack = createStackNavigator();

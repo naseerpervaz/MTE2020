@@ -93,6 +93,7 @@ module.exports.alterSlaughteredTable = function  alterSlaughteredTable(){
               // results.rows._array holds all the results.
             //   console.log(JSON.stringify(results.rows._array));
               console.log(`\nall rows from table ${table}: \n`,results.rows._array);
+              // return results.rows._array 
               
             } else {
               console.log('no results')
