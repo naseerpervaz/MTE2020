@@ -80,3 +80,60 @@ export const insertRow= async (table,fields,values,data)=>{
     }catch(err) { console.log(`\n \n Error: from  CRUD.insertRow: table name:${table} \n, ${err}`) }
 
 } // end of insertRow
+export const MetaTable_Contracts = async ()=>{
+    console.log('\ntrace from CRUD.MetaTable\n')
+   
+    try {
+        const result = await new Promise((resolve, reject) =>{
+            db.transaction(tx => { tx.executeSql('create table if not exists Contract(id integer primary key not null,ContractName text,ContractId text,ContractDiscription text);',[],
+                (tx,results)=>{
+                   console.log ('\n trace from MetaTable_Contracts: results: \n',results); 
+                     resolve(results.rowsAffected)},
+                (tx,error) =>{reject(error)}
+                    
+                )})});
+                // resolve
+               
+                // let ContractId1='1'
+                // let ContractName1= 'MTE2019'
+                // let ContractDiscription1= "MTE First year"
+                // ContractId2='2'
+                // ContractName2= 'MTE2020'
+                // ContractDiscription2= "MTE 2nd year"
+                // ContractId3='3'
+                // ContractName3= 'MTE20201'
+                //  ContractDiscription3= "MTE 3rd year"
+                // db.transaction(tx => { 
+                // tx.executeSql('insert into Contract(ContractId,ContractName,ContractDiscription) values (?,?,?),(?,?,?),(?,?,?);', [ContractId1,ContractName1,ContractDiscription1,ContractId2,ContractName2,ContractDiscription2,ContractId3,ContractName3,ContractDiscription3], (tx, results) => { console.log ('results after Contract row insert: ', results)},(tx,error)=> {console.log(error)})})
+         }catch(err) { console.log(`\n \n Error: from  CRUD. MetaTable_Contracts creation error: \n, ${err}`) }
+
+        
+
+}
+export const MetaTable_Contracts_Insert = async ()=>{
+    console.log('\ntrace from CRUD.MetaTable.Insert\n')
+     try {
+            const result = await new Promise((resolve, reject) =>{
+                db.transaction(tx => { 
+                    tx.executeSql('select * from Contract', [], (tx, results) => { resolve(
+                        results)},(tx,error)=> {reject(error)})})
+                                })
+                        // resolve
+                       if (result.rows.length > 0){
+                        console.log ('All rows from LivestockFeederContract table: ', result.rows)
+                      } else {
+                    
+                         let ContractId1='1'
+                         let ContractName1= 'MTE2019'
+                         let ContractDiscription1= "MTE First year"
+                         ContractId2='2'
+                         ContractName2= 'MTE2020'
+                         ContractDiscription2= "MTE 2nd year"
+                         ContractId3='3'
+                         ContractName3= 'MTE20201'
+                          ContractDiscription3= "MTE 3rd year"
+                         db.transaction(tx => { 
+                         tx.executeSql('insert into Contract(ContractId,ContractName,ContractDiscription) values (?,?,?),(?,?,?),(?,?,?);', [ContractId1,ContractName1,ContractDiscription1,ContractId2,ContractName2,ContractDiscription2,ContractId3,ContractName3,ContractDiscription3], (tx, results) => { console.log ('results after Contract row insert: ', results)},(tx,error)=> {console.log(error)})})
+                        }
+            }catch(err) { console.log(`\n \n Error: from  CRUD. MetaTable_Contracts insertion error: \n, ${err}`) }
+        }

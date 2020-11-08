@@ -413,7 +413,7 @@ _handleDatePicked = (pickeddate) => {
             <View>
                 <View style ={styles.buttonRow}>
                     {!this.state.IsLivestockDetailsConfirmed &&
-                    <TouchableHighlight style={styles.buttonStyles3} onPress={this.validateLivestock}>
+                    <TouchableHighlight style={styles.buttonStyles3} onPress={this.validateLivestock()}>
                         <Text style={styles.buttonText}>Submit</Text>
                     </TouchableHighlight>
                      } 

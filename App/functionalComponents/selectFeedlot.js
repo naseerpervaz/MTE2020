@@ -23,7 +23,7 @@ useEffect(()=>{
     
         const CONTRACTORS= await CRUD.readTable('Feedlots')
         let newFeedlotList= CONTRACTORS.map(({FeedlotName,id})=>({FeedlotName,id}))
-        console.log('\nforeach selectedContractor:\n',newFeedlotList)
+        // console.log('\nforeach selectedContractor:\n',newFeedlotList)
 
         setFeedlotList(newFeedlotList);
         setSelectedId(true);
@@ -39,7 +39,7 @@ useEffect(()=>{
 
       const contractManagement = ({ item }) => {
         const backgroundColor =  "#f0f8ff" ;  
-         console.log("\n trace from selectFeedlot.contractManagement",navigation,route)
+        //  console.log("\n trace from selectFeedlot.contractManagement",navigation,route)
         return (
             <Item
             item={item}

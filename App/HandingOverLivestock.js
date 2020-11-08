@@ -77,18 +77,17 @@ export class HandingOverLivestock extends Component {
 
         // db.transaction(tx => {
         //     tx.executeSql(
-        //       'DROP TABLE LivestockFeederContract;', [],
+        //       'DROP TABLE Contract;', [],
         //       (tx, results) => {  console.log('table LivestockFeederContract dropped result: \n',results)},
         //       (tx, error) => {console.log(error);}
         //     )
         //   });
         // NPQ to move following to initlization of app and CRUD module iA 03-NOV-2020
-        // CRUD.createTable ('LivestockFeederContract','id integer primary key not null,LivestockFeederContractName text,LivestockFeederContractId integer,FeedlotName text, FeedLotId integer,LivestockTag1 text,LivestockWeight1 real,LivestockTag2 text,LivestockWeight2 real,LivestockTag3 text,LivestockWeight3 real,LivestockTag4 text,LivestockWeight4 real,LivestockTag5 text,LivestockWeight5 real,Latitude real,Longitude real,Altitude real,TransactionTimestamp text,Household integer,ProjectCode text,Remarks text,VillageName text,LivestockFeederContractDate text,LivestockFeederContractExpDate text,LivestockFeederContractDuration text,NumberOfLivestockRecieved integer,LivestockRecievedTimeStamp text,LivesstockRecievedLatitude real,LivesstockRecievedLongitute real,LivesstockRecievedAltitude real,SynchronizeStatus text,ContractStatus text')
+        CRUD.createTable ('LivestockFeederContract','id integer primary key not null,LivestockFeederContractName text,LivestockFeederContractId integer,FeedlotName text, FeedLotId integer,LivestockTag1 text,LivestockWeight1 real,LivestockTag2 text,LivestockWeight2 real,LivestockTag3 text,LivestockWeight3 real,LivestockTag4 text,LivestockWeight4 real,LivestockTag5 text,LivestockWeight5 real,Latitude real,Longitude real,Altitude real,TransactionTimestamp text,Household integer,ProjectCode text,Remarks text,VillageName text,LivestockFeederContractDate text,LivestockFeederContractExpDate text,LivestockFeederContractDuration text,NumberOfLivestockRecieved integer,LivestockRecievedTimeStamp text,LivesstockRecievedLatitude real,LivesstockRecievedLongitute real,LivesstockRecievedAltitude real,SynchronizeStatus text,ContractStatus text')
+       let result=await CRUD.MetaTable_Contracts()
+       let result2= await CRUD.MetaTable_Contracts_Insert()
         
-        
-        //  CRUD.createTable ('Contract','id integer primary key not null,ContractName text,ContractId text,ContractDiscription text')
-        //  (table,fields,values,data)
-        // await CRUD.insertRow('contract','ContractId,ContractName,ContractDiscription','?,?,?',[{"MTE2021"},"Meat The Eid 2021","abc"])
+         
     } // end of component did mount
 
     geoSuccess = (position) => { this.setState({ ready:true,
