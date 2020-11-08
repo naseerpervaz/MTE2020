@@ -210,7 +210,7 @@ export const Splash = () => (
 export const SignIn = ({ navigation }) => {
   const { signIn } = React.useContext(AuthContext);
   
-  /****************** on hold by pass login 
+  /****************** on hold by pass login */
   const [username,onChangeText]=React.useState("")
     const [passwrd,setPasswrd]=React.useState("")
     const [priceLocalUser]=React.useState("naseerpervaz")
