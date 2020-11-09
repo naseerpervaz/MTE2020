@@ -36,7 +36,7 @@ export class SlaughterLivestock extends Component {
          }
     } // End of constructor
     async componentDidMount() {
-      console.log('SlaughterLivestock didmount')
+      // console.log('SlaughterLivestock didmount')
     
      
       // Geo coodinates
@@ -75,8 +75,9 @@ export class SlaughterLivestock extends Component {
 
 validateLivestock=()=> {
    // Validate Livestock Tag Number
+
     const SlaughterData = this.state.SlaughterLivestockTag;
-    console.log(`Slaughter Data: ${SlaughterData}`)
+    console.log(`from ValidateLivestock: Slaughter Data: ${SlaughterData}`)
     let numreg1 = /HFL/;
    if (numreg1.test(SlaughterData) && SlaughterData.length <= 16) {
       //test ok
@@ -413,7 +414,7 @@ _handleDatePicked = (pickeddate) => {
             <View>
                 <View style ={styles.buttonRow}>
                     {!this.state.IsLivestockDetailsConfirmed &&
-                    <TouchableHighlight style={styles.buttonStyles3} onPress={this.validateLivestock()}>
+                    <TouchableHighlight style={styles.buttonStyles3} onPress={()=>this.validateLivestock()}>
                         <Text style={styles.buttonText}>Submit</Text>
                     </TouchableHighlight>
                      } 

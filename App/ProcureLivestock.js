@@ -396,7 +396,7 @@ _handleDoBPicked = (pickeddate) => {
             </View>        
 
             <View style={{flex: 1,flexDirection: 'row', justifyContent: 'center',marginTop: 30,}}>
-              <TouchableHighlight  style={{width: '95%', height: '95%', alignItems: 'center', backgroundColor: '#35605a'}} onPress={this.validateLivestock()}>
+              <TouchableHighlight  style={{width: '95%', height: '95%', alignItems: 'center', backgroundColor: '#35605a'}} onPress={()=>this.validateLivestock()}>
                         <Text style={styles.buttonText}>Submit</Text>
               </TouchableHighlight>
             </View>
