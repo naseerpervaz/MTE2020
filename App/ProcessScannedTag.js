@@ -4,6 +4,7 @@ const axios = require('axios');
 import * as SQLite from 'expo-sqlite';
 import {BackEndApi} from "../App/config/constants";
 const slaughteredLivestockDetailsTable = require('../App/model/slaughteredLivestockDetailsTable')
+import Button from '../App/styles/Buttons';
 const db = SQLite.openDatabase('PRICELocal.db');
 
 export class DisplayScannedTag extends React.Component {
@@ -262,49 +263,122 @@ export class DisplayScannedTag extends React.Component {
     render()
     {
         return(
+            <View style = {styles.container}>
+             
+            
+             {this.state.dataLoaded && this.state.scannedTagData.PN && this.state.scannedTagData.LivestockTag &&      <Text style={{width: '90%', height: 26,textAlign:'center', marginLeft:13,backgroundColor: 'powderblue'}}>Package # {this.state.scannedTagData.PN} of Livestock #  {this.state.scannedTagData.LivestockTag}
+             </Text>}
            
-           <View style ={styles.buttonRow}>
-            {this.state.dataLoaded && this.state.scannedTagData.PN && this.state.scannedTagData.LivestockTag &&   <TouchableOpacity style={styles.buttonStyles} onPress={this.FreezePackage}>
-                <Text style={styles.buttonText}>Confirm Meat package # {this.state.scannedTagData.PN} of Livestock #  {this.state.scannedTagData.LivestockTag} has been stored in the Freezer </Text>
-                <Text style={styles.buttonText}> تصديق ڪريو گوشت جو پيڪيج نمبر  {this.state.scannedTagData.PN}   نمبر   ٽيگ {this.state.scannedTagData.LivestockTag} فريزر اندر رکيل ٿي ويو</Text>
-            </TouchableOpacity>
-            }
-             </View>
+             {this.state.dataLoaded && this.state.scannedTagData.PN && this.state.scannedTagData.LivestockTag &&      <Text style={{width: '90%', height: 26,textAlign:'center', marginLeft:13,backgroundColor: 'powderblue'}}> پيڪيج نمبر {this.state.scannedTagData.PN} ٽيگ نمبر  {this.state.scannedTagData.LivestockTag}     
+             </Text>}
+             <Text></Text>
+             <Text></Text>
+           
+                     
+             {this.state.dataLoaded && this.state.scannedTagData.PN && this.state.scannedTagData.LivestockTag &&  <Button  text1="Please Clik here to confirm Meat package has been stored in the Freezer"
+                   text2="تصديق ڪريو گوشت جو  پيڪيج فريزر اندر رکيل ٿي ويو"     onPress={() => this.FreezePackage()}
+                   type='filled'
+                   bordered
+                    />
+             }
+             <Text></Text>
+             <Text></Text>
+             {this.state.dataLoaded && this.state.scannedTagData.PN && this.state.scannedTagData.LivestockTag &&  <Button  text1="Cancel"
+                   text2="روڪيو"     onPress={() => this.exitHome()}
+                   type='filled'
+                   bordered
+                    />
+             }
+         </View>
+           
+        //    <View style = {styles.container}>
+             
+        //         <Text style={styles.labels}>Please confirm Meat package has been stored in the Freezer تصديق ڪريو گوشت جو  پيڪيج فريزر اندر رکيل ٿي ويو </Text>
+             
+        //     {this.state.dataLoaded && this.state.scannedTagData.PN && this.state.scannedTagData.LivestockTag &&   <TouchableOpacity style={styles.buttonStyles} onPress={this.FreezePackage}>
+        //         <Text style={styles.inputs}>Package # {this.state.scannedTagData.PN} of Livestock #  {this.state.scannedTagData.LivestockTag} </Text>
+        //         <Text style={styles.inputs}>   پيڪيج نمبر {this.state.scannedTagData.PN}   نمبر   ٽيگ {this.state.scannedTagData.LivestockTag} </Text>
+        //     </TouchableOpacity>
+        //     }
+      
+        //      </View>
         );
     }
 
 }
-
-// <Text>Salughter Date: {TagObj.SDate}</Text>
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#35605a'
-    },
-    buttonRow: {
-        flex: 2,
-        flexDirection: 'row',
-        alignItems: 'center',
-        borderColor: '#ffffff',
-        borderBottomWidth: 1,
-        backgroundColor: '#35605a'
-    },
-    buttonStyles: {
-        backgroundColor: '#35605a',
-        left: 20,
-        width: '100%',
-        height: '50%',
-        justifyContent: 'center',
-        alignItems: 'stretch'
-    },
-    buttonText:{
-        color: '#ffffff',
-        fontSize: 15,
-        marginLeft: 20,
-        marginRight:36,
-        // width: '96%',
-    }
+container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  button: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    marginVertical: 10,
+    borderRadius: 5
+  },
+ 
+heading: {
+    fontSize: 16,
+  //  flex: 1
+},
+inputs: {
+   // flex: 1,
+    width: '80%',
+    padding: 10,
+    backgroundColor: 'yellow'
+},
+buttons:{
+    marginTop: 15,
+    fontSize: 20,
+    color: "#f194ff",
+    padding:10,
+    borderColor: 'gray', borderWidth: 2
+},
+labels: {
+    paddingBottom: 10,
+    borderColor: 'red'
+}
 });
+// <Text>Salughter Date: {TagObj.SDate}</Text>
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         backgroundColor: '#35605a'
+//     },
+//     buttonRow: {
+//         flex: 2,
+//         flexDirection: 'row',
+//         alignItems: 'center',
+//         borderColor: '#ffffff',
+//         borderBottomWidth: 1,
+//         // backgroundColor: '#35605a'
+//     },
+//     buttonStyles: {
+//         backgroundColor: 'yellow',
+//         // backgroundColor: '#35605a',
+      
+//         marginRight:20,
+//         marginLeft:20,
+//         width: '80%',
+//         height: '30%',
+//         justifyContent: 'center',
+//         alignItems: 'stretch'
+//     },
+//     buttonText:{
+//         // color: '#ffffff',
+//         color: 'red',
+//         fontSize: 15,
+//         marginLeft: 20,
+//         marginRight:36,
+//         // width: '96%',
+//     },
+//     heading: {
+//         fontSize: 16,
+//       //  flex: 1
+//     },
+// });
 
  // validate if Scanned Tag exist in the back end. This approach was removed by npq on May 5, 2019
     /*
