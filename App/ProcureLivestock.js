@@ -84,7 +84,7 @@ validateLivestock=()=> {
     const CowTagData = this.state.CowTag;
     console.log(`Cow Data: ${CowTagData}`)
     let numreg1 = /HFL/;
-   if (numreg1.test(CowTagData) && CowTagData.length <= 16) {
+   if (numreg1.test(CowTagData) && CowTagData.length <= 18) {
       //test ok
      // alert('test ok')
       this.setState({ValidCowTag: true})

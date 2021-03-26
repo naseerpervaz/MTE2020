@@ -3,7 +3,7 @@ export const ValidateTag=(text)=>{
     // Validate Livestock Tag Number
     
     let numreg1 = /HFL/;
-   if (numreg1.test(text) && text.length <= 16) {
+   if (numreg1.test(text) && text.length <= 18) {
       
       return true
     } else {
