@@ -1,3 +1,4 @@
+//https://www.youtube.com/watch?v=nQVCkqvU1uE&t=236s 
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";

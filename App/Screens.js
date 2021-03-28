@@ -214,7 +214,7 @@ export const SignIn = ({ navigation }) => {
   /****************** on hold by pass login */
   const [username,onChangeText]=React.useState("")
     const [passwrd,setPasswrd]=React.useState("")
-    const [priceLocalUser]=React.useState("naseerpervaz")
+    const [priceLocalUser]=React.useState("nadeemabbas")
     const [priceLocalUserPW]=React.useState("PRICE2011")
     loginUser = ()=>{
       if ( !username){
