@@ -160,7 +160,7 @@ addDbDetails = () =>{
     // update backend
 
     const Data = {
-        FeedlotId: this.state.FeedlotId, FeedlotName: this.state.FeedlotName ,FeedlotOwnerId: this.state.FeedlotOwnerId , FeedlotAddress: this.state.FeedlotAddress ,FeedlotVillage: this.state.FeedlotVillage ,feedlotHouseholdNumber: this.state.feedlotHouseholdNumber ,feedlotOwnerName: this.state.feedlotOwnerName,FeedlotLatitude: this.state.where.lat,feedlotAltitude: this.state.where.Ald,feedlotLongitude: this.state.where.lng,feedlotBankAccountNumber: this.state.feedlotBankAccountNumber ,feedlotsBankName: this.state.feedlotsBankName ,feedlotBankAddress: this.state.feedlotBankAddress ,feedlotOwnerPhone: this.state.feedlotOwnerPhone ,feedlotRegistrationTimestamp: this.state.feedlotRegistrationTimestamp, feedlotRemarks:this.state.feedlotRemarks,feedlotOwnerNIC:this.state.feedlotOwnerNIC
+        FeedlotId: this.state.FeedlotId, FeedlotName: this.state.FeedlotName ,FeedlotOwnerId: this.state.FeedlotOwnerId , FeedlotAddress: this.state.FeedlotAddress ,FeedlotVillage: this.state.FeedlotVillage ,feedlotHouseholdNumber: this.state.feedlotHouseholdNumber ,feedlotOwnerName: this.state.feedlotOwnerName,FeedlotLatitude: this.state.where.lat,feedlotAltitude: this.state.where.Ald,feedlotLongitude: this.state.where.lng,feedlotBankAccountNumber: this.state.feedlotBankAccountNumber ,feedlotsBankName: this.state.feedlotsBankName ,feedlotBankAddress: this.state.feedlotBankAddress ,feedlotOwnerPhone: this.state.feedlotOwnerPhone ,feedlotRegistrationTimestamp: this.state.feedlotRegistrationTimestamp, feedlotRemarks:this.state.feedlotRemarks,feedlotOwnerNIC:this.state.feedlotOwnerNIC, UserId: this.props.route.params.userId
     }
     // console.log('Ddddddddddddddddddata: \n',Data)
     // axios.post('http://be79db59.ngrok.io/Feedlots', Data)
@@ -177,13 +177,13 @@ addDbDetails = () =>{
         tx.executeSql(`UPDATE Feedlots set SynchronizeStatus = ? where TRIM(FeedlotName) = ?`, ["Synchronized",this.state.FeedlotName.trim()], (tx, results) => { console.log ('results after Synchronization update: ', results) },(t,error)=> {console.log('Db9 error: ',error);   this.exitHome()})})
        
         // throw all records on console log for testing
-        db.transaction(tx => { 
-          tx.executeSql('select * from Feedlots', [], (tx, results) => { 
-             if (results.rows.length > 0){
-               console.log ('All rows from Feedlots table: ', results.rows)
-             } else {
-                 alert('No record found in the table Feedlots');
-             }},(t,error)=> {console.log('Db3 error: ',error);})})
+        // db.transaction(tx => { 
+        //   tx.executeSql('select * from Feedlots', [], (tx, results) => { 
+        //      if (results.rows.length > 0){
+        //        console.log ('All rows from Feedlots table: ', results.rows)
+        //      } else {
+        //          alert('No record found in the table Feedlots');
+        //      }},(t,error)=> {console.log('Db3 error: ',error);})})
       }
 
           

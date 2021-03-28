@@ -56,7 +56,7 @@ export class DailyWeightGain extends Component {
          }
     } // End of constructor
     async componentDidMount() {
-        // console.log('\n trace from HandingOveLivestock: props:\n',this.props)
+        console.log('\n trace from HandingOveLivestock: props:\n',this.props)
         this.updateSateWithRoute()
         this.getLivestockTags()
         let geoOptions = {
@@ -205,7 +205,7 @@ addDbDetails = () =>{
    
      
     const Data = {
-     FeedLotId: this.state.FeedLotId, FeedlotName: this.state.FeedlotContractorName ,ContractName: this.state.LivestockFeederContractName,ContractId: this.state.LivestockFeederContractId,LivestockTag1: this.state.LivestockTag1 ,LivestockWeight1: this.state.LivestockWeight1 ,LivestockTag2: this.state.LivestockTag2 ,LivestockWeight2: this.state.  LivestockWeight2 ,LivestockTag3: this.state.  LivestockTag3 ,LivestockWeight3: this.state.  LivestockWeight3,LivestockTag4: this.state.  LivestockTag4,LivestockWeight4: this.state.  LivestockWeight4 ,LivestockTag5: this.state.  LivestockTag5 ,LivestockWeight5: this.state.  LivestockWeight5 ,Latitude: this.state.  Latitude ,Longitude: this.state.  Longitude ,Altitude: this.state.  Altitude ,TransactionTimestamp: this.state.TransactionTimestamp ,Household: this.state.  Household ,ProjectCode: this.state.  ProjectCode ,Remarks: this.state.  Remarks ,VillageName: this.state.  VillageName ,WeightDate: this.state.WeightDate}
+     FeedLotId: this.state.FeedLotId, FeedlotName: this.state.FeedlotContractorName ,UserId: this.props.route.params.userId,ContractName: this.state.LivestockFeederContractName,ContractId: this.state.LivestockFeederContractId,LivestockTag1: this.state.LivestockTag1 ,LivestockWeight1: this.state.LivestockWeight1 ,LivestockTag2: this.state.LivestockTag2 ,LivestockWeight2: this.state.  LivestockWeight2 ,LivestockTag3: this.state.  LivestockTag3 ,LivestockWeight3: this.state.  LivestockWeight3,LivestockTag4: this.state.  LivestockTag4,LivestockWeight4: this.state.  LivestockWeight4 ,LivestockTag5: this.state.  LivestockTag5 ,LivestockWeight5: this.state.  LivestockWeight5 ,Latitude: this.state.  Latitude ,Longitude: this.state.  Longitude ,Altitude: this.state.  Altitude ,TransactionTimestamp: this.state.TransactionTimestamp ,Household: this.state.  Household ,ProjectCode: this.state.  ProjectCode ,Remarks: this.state.  Remarks ,VillageName: this.state.  VillageName ,WeightDate: this.state.WeightDate}
     // console.log('Ddddddddddddddddddata: \n',Data)
     // // axios.post('http://be79db59.ngrok.io/feedlots/DailyWeightGain', Data)
     

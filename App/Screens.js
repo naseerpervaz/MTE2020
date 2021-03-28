@@ -49,7 +49,8 @@ const ScreenContainer = ({ children }) => (
   <View style={styles.container}>{children}</View>
 );
 
-export const Home = ({ navigation }) => (
+export const Home = ({ navigation,userToken }) => (
+  
   <ScreenContainer>
     {/* <Text>Menu</Text> */}
     {/* <Button  text='Submit' bordered onPress={loginUser} /> */}
@@ -58,19 +59,19 @@ export const Home = ({ navigation }) => (
       text2="جانورن جو انتظام"
       // text2="هيڊ آفيس سان ڊيٽا کي هم وقت سازي ڪريو"
       onPress={() =>
-        navigation.push("AddCow", { name: "Procurment Management" })
+        navigation.push("AddCow", { name: "Procurment Management",userId: 'nadeemabbas' })
       }
       type='filled'
         bordered
     />
     
-    <Text></Text>
+    <Text>{userToken}</Text>
     <Button
       // title="Slaughter Livestock"
       text1="Slaughter Livestock"
       text2="ذبح چوپايو مال"
         onPress={() =>
-        navigation.push("SlaughterLivestock", { name: "Slaughter Management " }) }
+        navigation.push("SlaughterLivestock", { name: "Slaughter Management " ,userId: 'nadeemabbas'}) }
         type='filled'
         bordered
     />
@@ -87,7 +88,7 @@ export const Home = ({ navigation }) => (
       text1="Meat Package Inventory"
       text2="گوشت پيڪيج جي فهرست"
       onPress={() =>
-        navigation.push("Freez", { name: "گوشت پئڪيج اسٽيڪر اسڪين ڪيو" ,callingModule: "Inventory"})
+        navigation.push("Freez", { name: "گوشت پئڪيج اسٽيڪر اسڪين ڪيو" ,callingModule: "Inventory",userId: 'nadeemabbas'})
       }
       type='filled'
         bordered
@@ -98,7 +99,7 @@ export const Home = ({ navigation }) => (
       text1="Meat Package Distribution"
       text2="گوشت پيڪيج جي ورهاست"
       onPress={() =>
-        navigation.push("Freez", { name: "گوشت پئڪيج اسٽيڪر اسڪين ڪيو" ,callingModule: "Distribution"})
+        navigation.push("Freez", { name: "گوشت پئڪيج اسٽيڪر اسڪين ڪيو" ,callingModule: "Distribution",userId: 'nadeemabbas'})
       }
       type='filled'
         bordered
@@ -153,7 +154,7 @@ export const LivestockFeeder = ({ route,navigation }) => (
       text1="Register Feedlot"
       text2="فيڊل لاٽ کي رجسٽر ڪريو"
         onPress={() =>
-        navigation.push("Feeder Registration", { name: "Feedlots Management " }) }
+        navigation.push("Feeder Registration", { name: "Feedlots Management ", userId: 'nadeemabbas'}) }
         type='filled'
         bordered
     />
@@ -164,7 +165,7 @@ export const LivestockFeeder = ({ route,navigation }) => (
       text2="فيڊر فيڊ لاٽ کي جانورن جي حوالي ڪرڻ"
         onPress={() =>
         // navigation.push("Feedlot Contract Management", { name: "Feedlots Contract Management " }) }
-        navigation.push("Select Feedlot", { name: "Feedlots bbbContract Management " }) }
+        navigation.push("Select Feedlot", { name: "Feedlots bbbContract Management ",userId: 'nadeemabbas' }) }
         type='filled'
         bordered
     />
@@ -175,7 +176,7 @@ export const LivestockFeeder = ({ route,navigation }) => (
       text2="روزانه وزن حاصل ڪرڻ جو انتظام"
         onPress={() =>
         // navigation.push("Feedlot Contract Management", { name: "Feedlots Contract Management " }) }
-        navigation.push("Daily Weight Gain", { name: "Daily Weight Gain Management",callingModule: "dailyWeightGain" }) }
+        navigation.push("Daily Weight Gain", { name: "Daily Weight Gain Management",callingModule: "dailyWeightGain",userId: 'nadeemabbas' }) }
         type='filled'
         bordered
     />

@@ -54,7 +54,7 @@ useEffect(()=>{
             // navigation.setParams({contract: item.ContractName})
             // console.log("\n trace from bbbcontractManagement",navigation,route)
             onPress={() => {
-                navigation.push("Weight Gain Management",{contract: item.ContractName,contractId: item.id,contractor:contractor, contractorId: contractorId})
+                navigation.push("Weight Gain Management",{contract: item.ContractName,contractId: item.id,contractor:contractor, contractorId: contractorId,userId: 'nadeemabbas'})
             }}
           
             style={{ backgroundColor }}

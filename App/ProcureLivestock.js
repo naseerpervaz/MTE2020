@@ -6,6 +6,7 @@ import {BackEndApi} from "./config/constants";
 //import { _confirmProps } from 'react-native/Libraries/Modal/Modal';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import * as SQLite from 'expo-sqlite';
+import { AuthContext } from "./context"
 const axios = require('axios');
 
 const db = SQLite.openDatabase('PRICELocal.db');
@@ -43,7 +44,9 @@ export class AddCow extends Component {
          }
     } // End of constructor
     async componentDidMount() {
-    //console.log('props:\n',this.props)
+      
+    // console.log('\n\n ProcureLivestock.componentDidMount:props:\n',this.props)
+    // console.log('\n\n ProcureLivestock.componentDidMount:this.props.route.userId:\n',this.props.route.params.userId)
       // Geo coodinates
       // maximumAge is sec * Min * hrs to keep the current lat and log coordinates. It is upto your app requirements that for how long you want to keep coordinates or you want to track for each movement etc
       let geoOptions = {
@@ -67,7 +70,8 @@ export class AddCow extends Component {
 
     geoSuccess = (position) => { this.setState({ ready:true,
           where: {lat: position.coords.latitude,lng:position.coords.longitude, Ald:position.coords.altitude }})
-         // console.log('After pull geo location state data set: ',this.state)
+        //  console.log('After pull geo location state data set: ',this.state)
+        
      }
     geoFailure = (err) => {
       this.setState({error: err.message});
@@ -171,7 +175,7 @@ addDbDetails = () =>{
       tx.executeSql('insert into Livestock(LivestockTag, ProjectId, MoveToProjectApprovalStatus, PurchaseDate, BirthDate, Age, ShortDescription, Latitude, Longitude,Altitude,LiveWeight,TransactionTimeStamp, SynchronizeStatus) values (?, ?, ?, ?, ?,?,?,?,?,?,?,?,?)', [this.state.CowTag, this.state.ProjectId, this.state.MoveToProjectApprovalStatus,this.state.PurchaseDate,this.state.CowDateOfBirth,this.state.CowAge,this.state.CowDescription,this.state.where.lat,this.state.where.lng, this.state.where.Ald,this.state.CowLiveWeight,this.state.TransactionTimeStamp,this.state.SynchronizeStatus], (tx, results) => { console.log ('results after Livestock insert: ', results) },(t,error)=> {console.log('Livestock table Db4 error: ',error);   this.exitHome()})
       
     });
-    // this.setState({IsLivestockDetailsConfirmed: true})
+    // this.setState({IsLivestockDetailsConfirmed: true}) 
    // console.log('data set from addDbDetails: ',this.state.CowTag, this.state.ProjectId, this.state.MoveToProjectApprovalStatus,this.state.PurchaseDate,this.state.CowDateOfBirth,this.state.CowAge,this.state.CowDescription,this.state.where.lat,this.state.where.lng, this.state.where.Ald,this.state.CowLiveWeight,this.state.TransactionTimeStamp,this.state.SynchronizeStatus)
     // update backend
 
@@ -190,6 +194,7 @@ addDbDetails = () =>{
      CowLiveWeight: this.state.CowLiveWeight, 
      FeedlotId: this.state.FeedlotId,
      TransactionTimestamp:this.state.TransactionTimeStamp,
+     UserId: this.props.route.params.userId
      
     }
     // axios.post('http://be79db59.ngrok.io/DailyMilk/Add_Daily_Milk_Cow', updateCowTagData)
